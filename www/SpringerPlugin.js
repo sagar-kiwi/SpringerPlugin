@@ -1,70 +1,71 @@
 // window.plugins.SpringerPlugin
 // SpringerPlugin : all args optional
-module.exports = {
-movePageHandler:function(direction) {
+
+function SpringerPlugin() {}
+
+SpringerPlugin.prototype.movePageHandler = function(direction) {
 
 	var args = {};
 	if(direction)
 		args.direction = direction;
 	cordova.exec(null, null, "SpringerPlugin", "movePageHandler", [args]);
-},
+}
 
-callWebBrowserHomePage : function() {
+SpringerPlugin.prototype.callWebBrowserHomePage = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "callWebBrowserHomePage", [args]);
-},
+}
 
-callArticlePage: function() {
+SpringerPlugin.prototype.callArticlePage = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "callArticlePage", [args]);
-},
+}
 
-callWebBrowserPage: function() {
+SpringerPlugin.prototype.callWebBrowserPage = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "callWebBrowserPage", [args]);
-},
+}
 
-callOfflinePDF : function(filePath) {
+SpringerPlugin.prototype.callOfflinePDF = function(filePath) {
     
     var args = {};
 	if(filePath)
 		args.filePath = filePath;
 	cordova.exec(null, null, "SpringerPlugin", "callOfflinePDF", [args]);
-},
+}
 
-startLoader: function() {
+SpringerPlugin.prototype.startLoader = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "startLoader", [args]);
-},
+}
 
-stopLoader:function() {
+SpringerPlugin.prototype.stopLoader = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "stopLoader", [args]);
-},
+}
 
-callback : function() {
+SpringerPlugin.prototype.callback = function() {
     
     var args = {};
 	cordova.exec(null, null, "SpringerPlugin", "callback", [args]);
 }
-};
 
 // this will be forever known as the orch-func -jm
-// cordova.addConstructor(function() {
+cordova.addConstructor(function() {
 
-// 	if (!window.plugins) {
-// 		window.plugins = {};
-// 	}
+	if (!window.plugins) {
+		window.plugins = {};
+	}
 					  
-// 	// shim to work in 1.5 and 1.6
-// 	if (!window.Cordova) {
-// 		window.Cordova = cordova;
-// 	};
+	// shim to work in 1.5 and 1.6
+	if (!window.Cordova) {
+		window.Cordova = cordova;
+	};
 					   
-// 	window.plugins.springerPlugin = new SpringerPlugin();
-// });
+	window.plugins.springerPlugin = new SpringerPlugin();
+});
